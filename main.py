@@ -4,7 +4,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def root():
-    return jsonify({"status": "OK", "message": "Welcome to AnchorScore API"})
+    return jsonify({"status": "OK", "message": "Welcome to AnchorScore API - v1.1"})
+
 
 @app.route("/healthz")
 def health_check():
