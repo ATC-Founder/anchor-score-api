@@ -1,0 +1,36 @@
+openapi: 3.0.0
+info:
+  title: AnchorScore API
+  version: 1.0.0
+  description: |
+    Internal API for AnchorScore data services and risk scoring logic.
+
+servers:
+  - url: https://<your-cloud-run-url>
+    description: Production
+
+paths:
+  /health:
+    get:
+      summary: Health check
+      description: Returns service status and readiness.
+      parameters:
+        - in: header
+          name: X-API-Key
+          required: true
+          schema:
+            type: string
+          description: API key required to access the endpoint
+      responses:
+        '200':
+          description: Successful health check
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+
