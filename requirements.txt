@@ -1,2 +1,7 @@
 flask
 gunicorn
+fastapi
+uvicorn[standard]
+pydantic
+httpx
+python-multipart
