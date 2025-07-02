@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: anchor-score
+    env: docker
+    plan: free
+    dockerContext: .
+    dockerfilePath: Dockerfile
+    autoDeploy: true
+
