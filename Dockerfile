@@ -1,10 +1,21 @@
+# Use an official Python image
 FROM python:3.10-slim
 
+# Set working directory
 WORKDIR /app
 
-COPY . /app
+# Copy files
+COPY . .
 
+# Install dependencies
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
+# Set environment variable for port (Render uses 0.0.0.0:PORT)
+ENV PORT=8080
+
+# Expose the port
+EXPOSE $PORT
+
+# Run the app
+CMD ["gunicorn", "main:app", "-w", "1", "-k", "uvicorn.workers.UvicornWorker", "-b", "0.0.0.0:8080"]
