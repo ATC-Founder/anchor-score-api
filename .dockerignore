@@ -1,0 +1,22 @@
+# Virtual environments
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+env/
+venv/
+dev-env/
+
+# Python cache
+*.pyc
+
+# System files
+.DS_Store
+
+# Git & secrets
+.git/
+.gitignore
+.env
+
